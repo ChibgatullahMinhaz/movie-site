@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Navber from './Shared/Navber';
+import Sidebar from './Components/Sidebar/Sidebar';
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Outlet } from 'react-router';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App: React.FunctionComponent = () => {
+    return (
+        <div className='max-w-7xl mx-auto'>
+            <header>
+                <nav>
+                    <Navber />
+                </nav>
+            </header>
+            <main className="grid grid-cols-1 lg:grid-cols-12 gap-4 px-4">
+                {/* Main Content */}
+                <div className="lg:col-span-8 order-1 lg:order-1 sm:px-6 my-3.5">
+                    <Outlet />
+                </div>
 
-export default App
+                {/* Sidebar */}
+                <div className="lg:col-span-4 order-2 lg:order-2">
+                    <Sidebar />
+                </div>
+            </main>
+
+            <footer className='h-10 flex items-center justify-center text-gray-500 font-semibold shadow-lg border-t border-[#272829]'>
+                <span className='text-sm '>©{(new Date().getFullYear())}  by siteName.COM. All Rights Reserved</span>
+            </footer>
+        </div>
+    );
+};
+
+export default App;
