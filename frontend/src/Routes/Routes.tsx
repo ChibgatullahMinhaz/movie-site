@@ -6,6 +6,7 @@ import Home from "../Components/Home/Home";
 import LoadingSpinner from "../Components/UI/LoadingSpinner";
 import NotFound from "../pages/NotFound";
 import AdminLogin from "../Components/Auth/AdminLogin";
+import AddMovieWizard from "../Components/Admin/Form/AddMovieWizard";
 
 //* lazy loading
 const MovieDetails = lazy(() => import("../pages/MovieDetails"));
@@ -44,7 +45,13 @@ const router = createBrowserRouter([
         element:
             <Suspense fallback={<LoadingSpinner size={60} color="#0ea5e9" />}>
                 <AdminLayout />
-            </Suspense>
+            </Suspense>,
+        children: [
+            {
+                index: true,
+                element: <AddMovieWizard />
+            }
+        ]
     },
     {
         path: '*',

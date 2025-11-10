@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from 'react'
+import  { useState, useMemo } from 'react'
 import { ArrowBigDownDash, Circle, Search } from 'lucide-react'
 import { motion } from 'framer-motion'
-import Badge, { MovieCard } from '../Badge/Badge'
+import  { MovieCard } from '../Badge/Badge'
 import { popularMovies } from '../../Data/Data'
 import { Link } from 'react-router'
 

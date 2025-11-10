@@ -7,7 +7,6 @@ import router from "./app/routes/index.js";
 import { fileURLToPath } from 'url';
 import dotenv from "dotenv";
 import globalErrorHandler from "./app/middlewares/globalErrorHandler.js";
-import './cron/banCron.js';
 
 dotenv.config();
 

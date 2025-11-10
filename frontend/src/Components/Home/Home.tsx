@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { sumeMovieData } from '../../Data/Data';
@@ -15,7 +15,10 @@ const responsive = {
 
 const Home: React.FC = () => {
     const carouselRef = useRef<any>(null);
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('sdf')
+    useEffect(()=>{
+        setSearch('')
+    },[])
 
     const handleNext = () => carouselRef.current?.next();
     const handlePrev = () => carouselRef.current?.previous();
@@ -104,6 +107,7 @@ const Home: React.FC = () => {
                                     type={d.type as 'movie' | 'tv' | 'featured'}
                                     img={d.img}
                                     year={d.year}
+                                      id={idx}
                                 />
                             ))}
                         </Carousel>
@@ -138,6 +142,7 @@ const Home: React.FC = () => {
                                     type={d.type as 'movie' | 'tv' | 'featured'}
                                     img={d.img}
                                     year={d.year}
+                                      id={idx}
                                 />
                             ))}
                         </Carousel>
@@ -171,6 +176,7 @@ const Home: React.FC = () => {
                                     type={d.type as 'movie' | 'tv' | 'featured'}
                                     img={d.img}
                                     year={d.year}
+                                      id={idx}
                                 />
                             ))}
                         </Carousel>
@@ -198,6 +204,7 @@ const Home: React.FC = () => {
                                         type={d.type as 'movie' | 'tv' | 'featured'}
                                         img={d.img}
                                         year={d.year}
+                                          id={idx}
                                     />
                                 ))}
                             </div>
